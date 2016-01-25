@@ -1,6 +1,6 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+// });
 
 var elMap = document.getElementById('loc');                 // HTML element
 var msg = 'Sorry, we were unable to get your location.';    // No location msg
@@ -22,7 +22,8 @@ function success(position) {                                // Got location
   msg += position.coords.latitude + '</h3>';                // Add latitude
   elMap.innerHTML = msg;
   long = position.coords.longitude;
-  lat = position.coords.latitude;                                    // Show location
+  lat = position.coords.latitude;
+  loadScript();                                 // Show location
 }
 
 function fail(msg) {                                        // Not got location
@@ -31,8 +32,6 @@ function fail(msg) {                                        // Not got location
 }
 
 console.log('lat', lat)
-
-
 
 function init() {
   var mapOptions = {                                 // Set up the map options
@@ -50,4 +49,4 @@ function loadScript() {
   document.body.appendChild(script);                 // Add element to page
 }
 
-window.onload = loadScript;                          // on load call loadScript()
+// window.onload = loadScript;                          // on load call loadScript()
