@@ -2,6 +2,8 @@
 //     console.log( "ready!" );
 // });
 
+//use form to input address + plot address on map + address to lat/long + save addresses to //session storage(use handlebars to display results). 
+
 var elMap = document.getElementById('loc');                 // HTML element
 var msg = 'Sorry, we were unable to get your location.';    // No location msg
 var long = 0;
@@ -28,10 +30,10 @@ function success(position) {                                // Got location
 
 function fail(msg) {                                        // Not got location
   elMap.textContent = msg;                                  // Show text input
-  console.log(msg.code);                                    // Log the error
+  // console.log(msg.code);                                    // Log the error
 }
 
-console.log('lat', lat)
+// console.log('lat', lat)
 
 function init() {
   var mapOptions = {                                 // Set up the map options
@@ -41,6 +43,13 @@ function init() {
   };
   var venueMap;                                      // Map() draws a map
   venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: mapOptions.center,
+      map: venueMap,
+      animation: google.maps.Animation.DROP,
+      title: 'Hello World!'
+    });
 }
 
 function loadScript() {
